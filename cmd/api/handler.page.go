@@ -1,6 +1,9 @@
 package main
 
-import "net/http"
+import (
+	"net/http"
+	"theaveasso/uwo/pkg"
+)
 
 func homepageHandler(w http.ResponseWriter, r *http.Request) {
     if r.URL.Path != "/" {
@@ -8,6 +11,5 @@ func homepageHandler(w http.ResponseWriter, r *http.Request) {
         return
     }
 
-    w.WriteHeader(http.StatusOK)
-    w.Write([]byte("Hello from the UWO\n"))
+    pkg.WriteResponse(w, http.StatusOK, "Hello from the UWO\n")
 }
