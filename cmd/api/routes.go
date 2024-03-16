@@ -5,9 +5,7 @@ import "net/http"
 func setupRoutes() http.Handler {
     r := http.NewServeMux()
 
-    r.HandleFunc("GET /", func(w http.ResponseWriter, r *http.Request) {
-        w.Write([]byte("Hello World"))
-    })
+    r.HandleFunc("GET /healthcheck", healthcheckHandler)
 
     return r
 }
